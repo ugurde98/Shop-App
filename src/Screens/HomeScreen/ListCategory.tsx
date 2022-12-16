@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
 import { FlashList } from "@shopify/flash-list";
 import { Categories } from "../../Services/CategoriesApi";
@@ -16,12 +16,12 @@ const ListCategory = () => {
   }, []);
   return (
     <View>
-      <FlashList
+      <FlatList
         data={data}
         renderItem={({ item }) => (
           <CategoryListComponent tag={item} fontS={16} />
         )}
-        estimatedItemSize={200}
+        //estimatedItemSize={200}
         horizontal
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
