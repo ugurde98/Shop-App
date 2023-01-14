@@ -1,19 +1,22 @@
-import { View, Text, Image, ImageBackground, Dimensions } from "react-native";
+import { View, Text, Image, ImageBackground, Dimensions, TouchableOpacity } from "react-native";
 import React from "react";
 import CategoryTagComponent from "./CategoryTagComponent";
 import ProductRatingComponent from "./ProductRatingComponent";
+import { useNavigation } from "@react-navigation/native";
 
 const ListProductComponent = ({ item }: any) => {
   console.log("item: ", item);
   const { height, width } = Dimensions.get("window");
+  const navigation:any=useNavigation()
   return (
-    <View
+    <TouchableOpacity
       style={{
         width: width * 0.46,
         height: height * 0.38,
         margin: width * 0.02,
         backgroundColor: "white",
       }}
+      onPress={()=> navigation.navigate('ProductDetailsScreen',{itemId:item.id})}
     >
       <ImageBackground
         source={{ uri: item.image }}
@@ -58,7 +61,7 @@ const ListProductComponent = ({ item }: any) => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

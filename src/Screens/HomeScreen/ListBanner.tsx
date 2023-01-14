@@ -4,6 +4,8 @@ import { FlashList } from "@shopify/flash-list";
 import { Banner } from "../../Services/TrendyolBannerApi";
 
 const ListBanner = () => {
+  const { height, width } = Dimensions.get("window");
+
   const [data, setData] = useState([]);
   console.log("data: ", data);
   const Datax = async () => {
@@ -24,6 +26,9 @@ const ListBanner = () => {
         //estimatedItemSize={200}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        snapToInterval={width}
+        snapToAlignment={"center"}
+        decelerationRate={"fast"}
       />
     </View>
   );
